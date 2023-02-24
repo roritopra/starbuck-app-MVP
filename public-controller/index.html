@@ -10,14 +10,23 @@
 </head>
 
 <body>
-
     <div class="container">
-        <div class="pantalla1">
-            <img src="./images/Start.png" alt="">
-            <button id="cambiar-pantalla">Cambiar a pantalla 2</button>
-        </div>
-    </div>
 
+        <div id="pantalla1" class="pantalla activa">
+            <img src="./images/Start.png" alt="">
+            <button class="btn1" id="boton-pantalla2">PLAY</button>
+        </div>
+        
+        <div id="pantalla2" class="pantalla">
+            <img src="./images/play.png" alt="">
+            <button class="button2" id="boton-pantalla3">Ir a Pantalla 3</button>
+        </div>
+        
+        <div id="pantalla3" class="pantalla">
+            <img src="./images/resgister.png" alt="">
+        </div>
+
+    </div>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
         integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
         crossorigin="anonymous"></script>
