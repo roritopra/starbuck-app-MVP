@@ -13,31 +13,41 @@
 <body>
 
     <div id="pantalla1" class="pantalla activa">
-        <img src="./images/Scan.png" alt="">
+        <img class="img-pantalla" src="./images/Scan.png" alt="">
         <button id="boton-pantalla2">Ir a Pantalla 2</button>
       </div>
       
       <div id="pantalla2" class="pantalla">
-        <img src="./images/How to play.png" alt="">
-        <button id="boton-pantalla1">Ir a Pantalla 1</button>
+        <img class="img-pantalla" src="./images/How to play.png" alt="">
         <button id="boton-pantalla3">Ir a Pantalla 3</button>
       </div>
       
       <div id="pantalla3" class="pantalla">
-        <h1>Pantalla 3</h1>
-        <button id="boton-pantalla2">Ir a Pantalla 2</button>
+        <div class="container">
+            <div class="floor"></div>
+    
+            <div class="player"></div>
+    
+            <div class="score">0</div>
+
+            <div class="game-over">GAME OVER</div>
+        </div>
+    
+        
+        <button id="boton-pantalla4">Ir a Pantalla 4</button>
       </div>
 
+      <div id="pantalla4" class="pantalla">
+        <img class="img-pantalla" src="./images/After gane.png" alt="">
+        <button id="boton-pantalla5">Ir a Pantalla 3</button>
+      </div>
 
-    <div class="container">
-        <div class="floor"></div>
+      <div id="pantalla5" class="pantalla">
+        <img class="img-pantalla" src="./images/FILL.png" alt="">
+      </div>
 
-        <div class="player"></div>
+      
 
-        <div class="score">0</div>
-    </div>
-
-    <div class="game-over">GAME OVER</div>
 
 
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"

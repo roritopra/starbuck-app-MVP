@@ -7,6 +7,7 @@
 body {
     height: 100vh;
     display: flex;
+    justify-content: center;
     background-color: bisque;
     align-items: center;
 }
@@ -62,7 +63,7 @@ body {
 
     position: absolute;
     width: 100%;
-
+    top: 185px;
     text-align: center;
     color: #a20000;
 }
@@ -78,3 +79,18 @@ body {
 
     background: url(images/cactus1.png);
 }
+
+.pantalla {
+    display: none;
+  }
+  
+  .pantalla.activa {
+    display: block;
+  }
+
+
+ .img-pantalla {
+    width: 680px;
+ } 
+
+

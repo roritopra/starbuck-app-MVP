@@ -1,15 +1,41 @@
 const URL = `http://${window.location.hostname}:5050`;
 let socket = io(URL, { path: '/real-time' });
 
-function mostrarPantalla2() {
-    document.getElementById("pantalla1").style.display = "none";
-    document.getElementById("pantalla2").style.display = "block";
+// Obtener los botones
+var botonPantalla2 = document.getElementById("boton-pantalla2");
+var botonPantalla3 = document.getElementById("boton-pantalla3");
+var botonPantalla4 = document.getElementById("boton-pantalla4");
+var botonPantalla5 = document.getElementById("boton-pantalla5");
+
+// Añadir un event listener a cada botón
+
+botonPantalla2.addEventListener("click", function() {
+  mostrarPantalla(2);
+});
+
+botonPantalla3.addEventListener("click", function() {
+  mostrarPantalla(3);
+});
+
+botonPantalla4.addEventListener("click", function() {
+    mostrarPantalla(4);
+  });
+
+botonPantalla5.addEventListener("click", function() {
+    mostrarPantalla(5);
+  });
+
+// Función para mostrar la pantalla correspondiente
+function mostrarPantalla(numPantalla) {
+  var pantallas = document.getElementsByClassName("pantalla");
+  for (var i = 0; i < pantallas.length; i++) {
+    if (pantallas[i].id === "pantalla" + numPantalla) {
+      pantallas[i].classList.add("activa");
+    } else {
+      pantallas[i].classList.remove("activa");
+    }
   }
-  
-  function mostrarPantalla1() {
-    document.getElementById("pantalla2").style.display = "none";
-    document.getElementById("pantalla1").style.display = "block";
-  }
+}
 
 //****** GAME LOOP, Inician el juego cuando todas las imagenes se hayan cargado y programa la funcion update pa que se llame ********//
 
