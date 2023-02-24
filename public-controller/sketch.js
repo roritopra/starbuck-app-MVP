@@ -1,30 +1,21 @@
 const URL = `http://${window.location.hostname}:5050`;
 let socket = io(URL, { path: '/real-time' });
 
-function setup() {
-    frameRate(16);
-    createCanvas(windowWidth, windowHeight);
-}
+var boton = document.getElementById("cambiar-pantalla");
+var boton2 = document.querySelector("cambiar-pantalla2")
 
-function draw() {
-    background(0);
-    ellipse(windowWidth / 2, windowHeight / 3, 50, 50);
-    ellipse(windowWidth / 2, windowHeight / 1.5, 50, 50);
-    ellipse(windowWidth / 1.5, windowHeight / 2, 50, 50);
-    ellipse(windowWidth / 3, windowHeight / 2, 50, 50);
+// Agregar un evento de clic al botón
+boton.addEventListener("click", function() {
+  // Cambiar a la pantalla 2
+  window.location.replace("screen1.html");
+});
 
-    movementButton('UP', windowWidth / 2, windowHeight / 3);
-    movementButton('DOWN', windowWidth / 2, windowHeight / 1.5);
-    movementButton('RIGHT', windowWidth / 1.5, windowHeight / 2);
-    movementButton('LEFT', windowWidth / 3, windowHeight / 2);
-}
-
+boton2.addEventListener("click", function() {
+  // Cambiar a la pantalla 2
+  window.location.replace("screen3.html");
+});
 /*___________________________________________
 
 1) Create a function that includes the socket method to emit the directions
 _____________________________________________ */
 
-function movementButton(direction, posX, posY) {
-    //switch case UP, DOWN, RIGHY, LEFT
-    //socket.emit()
-}
