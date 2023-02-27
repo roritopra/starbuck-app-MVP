@@ -1,6 +1,6 @@
 const URL = `http://${window.location.hostname}:5050`;
 let socket = io(URL, { path: '/real-time' });
-
+ 
 // Obtener los botones
 var botonPantalla2 = document.getElementById("boton-pantalla2");
 var botonPantalla3 = document.getElementById("boton-pantalla3");
@@ -105,6 +105,7 @@ function start() {
 function HandleKeydown(ev) {
     if(ev.keyCode == 32){
         jump();
+        console.log(HandleKeydown)
     }
 }
 
@@ -113,6 +114,8 @@ function jump() {
     if(playerPosY === floorY) {
         jumping = true;
         velY = impulse;
+        console.log(jump)
+        console.log(playerPosY, floorY, jumping, velY)
     }
 }
 
@@ -205,7 +208,7 @@ function winPoints() {
 function detectCollision()  {
     for (var i = 0; i < obstacles.length; i++) {
         if(obstacles[i].posX > playerPosX + player.clientWidth) {
-            //EVADE en los saltos
+            //EVADE en los playerPosY
             break; //al estar en orden, no puede chocar con más
         }else{
             if(IsCollision(player, obstacles[i], 10, 30, 15, 20)) {
@@ -233,10 +236,6 @@ function  GameOver() {
     gameOver.style.display = "block";
 }
 
-function getJob() {
-
-}
-
 
 /*___________________________________________
 
@@ -244,6 +243,13 @@ function getJob() {
 You may want to use a Switch structure to listen for up, down, right and left cases.
 _____________________________________________ */
 
+socket.on('display-saludo',(message)=>{
+    console.log(message)
+});
+
+socket.on('display-salto', (salta)=> {
+    console.log(salta)
+})
 
 /*___________________________________________
 

@@ -37,11 +37,27 @@ app.post('/add-lead', (request, response) => {
 2) Create the socket methods to listen the events and emit a response
 It should listen for directions and emit the incoming data.
 _____________________________________________ */
-
+/*
 ioServer.on('connection', (socket) => {
+    console.log(socket.id)
 
+    socket.on('')
 
 });
+*/
+ioServer.on('connection',(socket) =>{
+    console.log(socket.id);
+    socket.on('saludo',(message)=> {
+        console.log(message);
+        socket.broadcast.emit('display-saludo',message);
+    });
+});
+ioServer.on('connection', function(socket) {
+    socket.on('eventoDeClick', function(salta) {
+      console.log("si salta");
+      socket.broadcast.emit('display-salto', salta);
+    });
+  });
 
 /*___________________________________________
 

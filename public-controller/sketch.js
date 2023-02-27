@@ -34,4 +34,13 @@ function mostrarPantalla(numPantalla) {
 
 1) Create a function that includes the socket method to emit the directions
 _____________________________________________ */
+let message = "aaaaa"
+socket.emit("saludo",message);
+
+let salta = jump();
+var button = document.getElementById('miBoton');
+button.addEventListener('click', function(event) {
+  socket.emit('eventoDeClick', salta);
+});
+
 
