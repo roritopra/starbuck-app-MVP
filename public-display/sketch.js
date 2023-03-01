@@ -105,7 +105,6 @@ function start() {
 function HandleKeydown(ev) {
     if(ev.keyCode == 32){
         jump();
-        console.log(HandleKeydown)
     }
 }
 
@@ -243,13 +242,16 @@ function  GameOver() {
 You may want to use a Switch structure to listen for up, down, right and left cases.
 _____________________________________________ */
 
-socket.on('display-saludo',(message)=>{
-    console.log(message)
+
+socket.on('display-salto',(message)=>{
+    if(!jumping && message) jump();
 });
 
-socket.on('display-salto', (salta)=> {
-    console.log(salta)
-})
+socket.on('display-salto',(message)=>{
+    if(!jumping && message) jump();
+});
+
+
 
 /*___________________________________________
 

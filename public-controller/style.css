@@ -22,8 +22,22 @@ body {
 
 #pantalla1{
     position: relative;
+}
+
+#pantalla2{
+    position: relative;
     
 }
+
+.miBoton{
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    top: 215px;
+    right: 140px;
+}
+
 
 img {
     width: 300px;

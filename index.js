@@ -52,9 +52,11 @@ ioServer.on('connection',(socket) =>{
         socket.broadcast.emit('display-saludo',message);
     });
 });
+
 ioServer.on('connection', function(socket) {
     socket.on('eventoDeClick', function(salta) {
-      console.log("si salta");
+      console.log("-------------Recibido---------");
+      console.log(salta, typeof salta);
       socket.broadcast.emit('display-salto', salta);
     });
   });
