@@ -247,14 +247,10 @@ socket.on('display-salto',(message)=>{
     if(!jumping && message) jump();
 });
 
-socket.on('display-salto',(message)=>{
-    if(!jumping && message) jump();
-});
+/*
+socket.on('display-cambio', (message) =>{
+    
+})
+*/
 
-
-
-/*___________________________________________
-
-2) Include the fetch method to post each time the snake eats a mouse
-_____________________________________________ */
 

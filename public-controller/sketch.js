@@ -1,12 +1,12 @@
 const URL = `http://${window.location.hostname}:5050`;
 let socket = io(URL, { path: '/real-time' });
 
-var boton = document.getElementById("cambiar-pantalla");
-var boton2 = document.querySelector("cambiar-pantalla2")
 
 // Obtener los botones
 var botonPantalla2 = document.getElementById("boton-pantalla2");
 var botonPantalla3 = document.getElementById("boton-pantalla3");
+var botonPantalla4 = document.getElementById("boton-pantalla4");
+
 
 // Añadir un event listener a cada botón
 
@@ -16,6 +16,10 @@ botonPantalla2.addEventListener("click", function() {
 
 botonPantalla3.addEventListener("click", function() {
   mostrarPantalla(3);
+});
+
+botonPantalla4.addEventListener("click", function() {
+  mostrarPantalla(4);
 });
 
 // Función para mostrar la pantalla correspondiente
@@ -36,17 +40,25 @@ function mostrarPantalla(numPantalla) {
 _____________________________________________ */
 
 let salta = false;
-var button = document.querySelector('.miBoton');
-console.log(button);
-button.addEventListener('mousedown', ()=> {
+var buttonJump = document.querySelector('.miBoton');
+console.log(buttonJump);
+buttonJump.addEventListener('mousedown', ()=> {
   salta = false;
   socket.emit('eventoDeClick', salta);
 });
 
-button.addEventListener('mouseup', ()=> {
+buttonJump.addEventListener('mouseup', ()=> {
   salta = true;
   socket.emit('eventoDeClick', salta);
 });
 
+/*
+let cambio1 = 2
+var btnPantalla2 = document.querySelector('.btn1')
+btnPantalla2.addEventListener('click'), ()=> {
+  cambio1 = 2;
+  socket.emit('cambioClick', cambio1);
+}
+*/
 
 

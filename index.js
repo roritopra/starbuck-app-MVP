@@ -61,6 +61,14 @@ ioServer.on('connection', function(socket) {
     });
   });
 
+/*  
+ioServer.on('connection',(socket) =>{
+    socket.on('cambioClick', function(cambio1) {
+        console("---------Got it------");
+        socket.broadcast.emit('display-cambio', cambio1)
+    });
+});  
+
 /*___________________________________________
 
 3) Create an endpoint to POST user score and print it
