@@ -6,6 +6,7 @@ let socket = io(URL, { path: '/real-time' });
 var botonPantalla2 = document.getElementById("boton-pantalla2");
 var botonPantalla3 = document.getElementById("boton-pantalla3");
 var botonPantalla4 = document.getElementById("boton-pantalla4");
+var botonPantalla5 = document.getElementById("boton-pantalla5");
 
 
 // Añadir un event listener a cada botón
@@ -22,6 +23,10 @@ botonPantalla4.addEventListener("click", function() {
   mostrarPantalla(4);
 });
 
+botonPantalla5.addEventListener("click", function() {
+  mostrarPantalla(5);
+});
+
 // Función para mostrar la pantalla correspondiente
 function mostrarPantalla(numPantalla) {
   var pantallas = document.getElementsByClassName("pantalla");
@@ -32,6 +37,10 @@ function mostrarPantalla(numPantalla) {
       pantallas[i].classList.remove("activa");
     }
   }
+}
+
+function showButton() {
+  document.querySelector("boton-pantalla4").style.display = "block";
 }
 
 /*___________________________________________
@@ -66,6 +75,10 @@ botonPantalla3.addEventListener("click", function() {
 
 botonPantalla4.addEventListener("click", function() {
   changeDisplayScreen(4);
+});
+
+botonPantalla5.addEventListener("click", function() {
+  changeDisplayScreen(5);
 });
 
 
