@@ -247,6 +247,10 @@ socket.on('display-salto',(message)=>{
     if(!jumping && message) jump();
 });
 
+socket.on('change-display-screen', (message) => {
+    mostrarPantalla(message);
+  });
+
 /*
 socket.on('display-cambio', (message) =>{
     

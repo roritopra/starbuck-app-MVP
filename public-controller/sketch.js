@@ -52,6 +52,24 @@ buttonJump.addEventListener('mouseup', ()=> {
   socket.emit('eventoDeClick', salta);
 });
 
+//Cambio pantallas emit
+function changeDisplayScreen(target) {
+  socket.emit('controller-change-screen', target);
+}
+botonPantalla2.addEventListener("click", function() {
+  changeDisplayScreen(2);
+});
+
+botonPantalla3.addEventListener("click", function() {
+  changeDisplayScreen(3);
+});
+
+botonPantalla4.addEventListener("click", function() {
+  changeDisplayScreen(4);
+});
+
+
+
 /*
 let cambio1 = 2
 var btnPantalla2 = document.querySelector('.btn1')

@@ -54,22 +54,13 @@ ioServer.on('connection',(socket) =>{
 });
 
 ioServer.on('connection', function(socket) {
-    socket.on('eventoDeClick', function(salta) {
+    socket.on('eventoDeClick', function(salta) { 
       console.log("-------------Recibido---------");
       console.log(salta, typeof salta);
       socket.broadcast.emit('display-salto', salta);
     });
+    socket.on('controller-change-screen', function(screen) {
+        socket.broadcast.emit('change-display-screen', screen);
+      });
   });
 
-/*  
-ioServer.on('connection',(socket) =>{
-    socket.on('cambioClick', function(cambio1) {
-        console("---------Got it------");
-        socket.broadcast.emit('display-cambio', cambio1)
-    });
-});  
-
-/*___________________________________________
-
-3) Create an endpoint to POST user score and print it
-_____________________________________________ */
