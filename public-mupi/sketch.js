@@ -1,6 +1,10 @@
-const URL = `http://${window.location.hostname}:5050`;
-let socket = io(URL, { path: '/real-time' });
- 
+const NGROK = `${window.location.hostname}`;
+//const NGROK = `https://${window.location.hostname}`;
+//let socket = io(`${window.location.hostname}:5050`, { path: '/real-time' }); 
+let socket = io(NGROK, { path: '/real-time' });
+console.log('Server IP: ', NGROK);
+
+
 // Obtener los botones
 var botonPantalla2 = document.getElementById("boton-pantalla2");
 var botonPantalla3 = document.getElementById("boton-pantalla3");
@@ -256,5 +260,3 @@ socket.on('display-cambio', (message) =>{
     
 })
 */
-
-

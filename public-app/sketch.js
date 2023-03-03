@@ -1,6 +1,6 @@
-const URL = `http://${window.location.hostname}:5050`;
-let socket = io(URL, { path: '/real-time' });
-
+const NGROK = `${window.location.hostname}`;
+console.log('Server IP: ', NGROK);
+let socket = io(NGROK, { path: '/real-time' });
 
 // Obtener los botones
 var botonPantalla2 = document.getElementById("boton-pantalla2");

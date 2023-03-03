@@ -1,50 +1,29 @@
-import express, { request, response } from'express';
-import { Server } from 'socket.io';
-const PORT = 5050;
+import { express, Server, cors, os } from './dependencies.js'
+const PORT = 5050; // No cambiar
+const IPaddress ='192.168.20.21'; // Cambiar por la IP del computador
+const SERVER_IP = IPaddress;
 
 const app = express();
+app.use(cors({ origin: "*" })); // Esta linea de codigo es para seguridad
+app.use(express.json());
+app.use('/app', express.static('public-app'));
+app.use('/mupi', express.static('public-mupi'));
+
 const httpServer = app.listen(PORT, () => {
-    console.table(
-        {
-            'Controller:' : 'http://localhost:5050/controller',
-            'Display:' : 'http://localhost:5050/display',
-        }
-    )
+    console.log(`Server is running, host http://${SERVER_IP}:${PORT}/`);
+    console.table({ 
+        'Client Endpoint' : `http://${SERVER_IP}:${PORT}/app`,
+        'Mupi Endpoint': `http://${SERVER_IP}:${PORT}/mupi` });
 });
+// Run on terminal: ngrok http 5050;
+
 const ioServer = new Server(httpServer, { path: '/real-time' });
 
-//const staticController = express.static('public-controller');
-//const staticDisplay = express.static('public-display');
-
-app.use('/controller', express.static('public-controller'));
-app.use('/display', express.static('public-display'));
-app.use(express.json());
-
-/*___________________________________________
-
-1) Create an endpoint to GET a validation message to test if the endpoint is working
-_____________________________________________ */
-
-app.post('/add-lead', (request, response) => {
-    request.body //{name: 'juan}
-    const bonnus = generateBonnus();
-    response.send(bonnus)
+app.post('/user', (request, response) => {
+    console.log(request.body);
+    response.end();
 })
-
-
-/*___________________________________________
-
-2) Create the socket methods to listen the events and emit a response
-It should listen for directions and emit the incoming data.
-_____________________________________________ */
-/*
-ioServer.on('connection', (socket) => {
-    console.log(socket.id)
-
-    socket.on('')
-
-});
-*/
+//Donde epieza a funcionar la definicion de socket
 ioServer.on('connection',(socket) =>{
     console.log(socket.id);
     socket.on('saludo',(message)=> {
@@ -63,4 +42,5 @@ ioServer.on('connection', function(socket) {
         socket.broadcast.emit('change-display-screen', screen);
       });
   });
+
 
