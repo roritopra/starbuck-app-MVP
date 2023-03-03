@@ -9,6 +9,7 @@ var botonPantalla4 = document.getElementById("boton-pantalla4");
 var botonPantalla5 = document.getElementById("boton-pantalla5");
 
 
+
 // Añadir un event listener a cada botón
 
 botonPantalla2.addEventListener("click", function() {
@@ -27,6 +28,8 @@ botonPantalla5.addEventListener("click", function() {
   mostrarPantalla(5);
 });
 
+
+
 // Función para mostrar la pantalla correspondiente
 function mostrarPantalla(numPantalla) {
   var pantallas = document.getElementsByClassName("pantalla");
@@ -39,9 +42,6 @@ function mostrarPantalla(numPantalla) {
   }
 }
 
-function showButton() {
-  document.querySelector("boton-pantalla4").style.display = "block";
-}
 
 /*___________________________________________
 
